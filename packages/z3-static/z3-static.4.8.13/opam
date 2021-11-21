@@ -11,7 +11,7 @@ build: [
 ]
 
 install: [
-  [ "sh" "-c" "ocamlfind install z3 build/api/ml/* build/libz3-static.a"]
+  [ "sh" "-c" "ocamlfind install z3-static build/api/ml/* build/libz3-static.a"]
   [ "cp" "build/z3" "%{bin}%/z3-static"]
 ]
 
