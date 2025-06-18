@@ -73,13 +73,8 @@ jobs:
           # opam remote add local-repo file://. --rank=1
           # opam repository set-url local-repo file://$PWD || opam repository add local-repo file://$PWD --rank=1
 
-          if opam repository set-url local-repo "file://$PWD"; then
-            echo "Updated local-repo URL."
-          else
-            echo "Adding local-repo URL..."
-            opam repository add local-repo "file://$PWD" --rank=1
-          fi
-
+          opam repository remove local-repo --yes || true
+          opam repository add local-repo "file://$PWD" --rank=1
 
           # opam install z3.dev
           opam reinstall z3.dev
