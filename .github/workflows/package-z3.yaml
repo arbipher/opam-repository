@@ -29,6 +29,7 @@ jobs:
             ${{ runner.os }}-ccache-
 
       # Cache opam (compiler + packages)
+      # The opam cache may be fragile with previous running caches.
       - name: Cache opam
         uses: actions/cache@v4
         with:
@@ -69,8 +70,10 @@ jobs:
       - name: Install package
         run: |
           eval $(opam env)
-          opam remote add local-repo file://. --rank=1
-          opam install z3.dev
+          # opam remote add local-repo file://. --rank=1
+          opam repository set-url local-repo file://$PWD || opam repository add local-repo file://$PWD --rank=1
+          # opam install z3.dev
+          opam reinstall z3.dev
           # # OPAMKEEPBUILDDIR=true opam install --reuse-build-dir ./packages/z3/z3.dev
           # OPAMKEEPBUILDDIR=true opam install ./packages/z3/z3.dev
 
