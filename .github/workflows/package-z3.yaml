@@ -79,7 +79,8 @@ jobs:
         run: |
           eval $(opam env)
           ocamlfind query z3
-          ocamlc -package z3 -linkpkg -o test_z3 test.ml
+          SRC_DIR="$OPAM_SWITCH_PREFIX/.opam-switch/sources/z3.dev"
+          ocamlfind ocamlc -package z3 -linkpkg -o test_z3 "$SRC_DIR/examples/ml/ml_example.ml"
           ./test_z3
 
       # # Configure
