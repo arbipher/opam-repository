@@ -69,12 +69,15 @@ jobs:
       # Install the package from the local source directory
       - name: Install package
         run: |
+          opam switch show
           eval $(opam env)
+          opam switch show
           # opam remote add local-repo file://. --rank=1
           # opam repository set-url local-repo file://$PWD || opam repository add local-repo file://$PWD --rank=1
 
           opam repository remove local-repo --yes --all || true
           opam repository add local-repo "file://$PWD" --rank=1
+          opam repository list
 
           # opam install z3.dev
           opam reinstall z3.dev
@@ -84,7 +87,11 @@ jobs:
       # Test the installed package
       - name: Test installed package
         run: |
+          opam switch show
           eval $(opam env)
+          opam switch show
+          opam repository list
+
           ocamlfind query z3
           SRC_DIR="$OPAM_SWITCH_PREFIX/.opam-switch/sources/z3.dev"
           ocamlfind ocamlc -package z3 -linkpkg -o test_z3 "$SRC_DIR/examples/ml/ml_example.ml"
