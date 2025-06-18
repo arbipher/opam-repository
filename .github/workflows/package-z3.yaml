@@ -71,7 +71,16 @@ jobs:
         run: |
           eval $(opam env)
           # opam remote add local-repo file://. --rank=1
-          opam repository set-url local-repo file://$PWD || opam repository add local-repo file://$PWD --rank=1
+          # opam repository set-url local-repo file://$PWD || opam repository add local-repo file://$PWD --rank=1
+
+          if opam repository set-url local-repo "file://$PWD"; then
+            echo "Updated local-repo URL."
+          else
+            echo "Adding local-repo URL..."
+            opam repository add local-repo "file://$PWD" --rank=1
+          fi
+
+
           # opam install z3.dev
           opam reinstall z3.dev
           # # OPAMKEEPBUILDDIR=true opam install --reuse-build-dir ./packages/z3/z3.dev
