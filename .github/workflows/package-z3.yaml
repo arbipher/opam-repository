@@ -61,10 +61,8 @@ jobs:
 
       - name: Prepare source directory
         run: |
-          rm -rf z3-src z3.dev
-          git clone --branch ocaml-binding-more https://github.com/arbipher/z3.git z3-src
-          mkdir -p z3.dev
-          cp -r z3-src/* z3.dev
+          rm -rf z3.dev
+          git clone --depth 1 --branch ocaml-binding-more https://github.com/arbipher/z3.git z3.dev
           curl -L https://raw.githubusercontent.com/ocaml/opam-source-archives/main/patches/z3/gccstd-2a.patch -o z3.dev/gccstd-2a.patch
 
       # Install the package from the local source directory
