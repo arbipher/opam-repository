@@ -10,7 +10,7 @@ jobs:
   build-test:
     strategy:
       matrix:
-        os: [ ubuntu-latest, macos-latest]
+        os: [ ubuntu-latest, macos-latest ]
         ocaml-version: ["5"]
       fail-fast: false
     runs-on: ${{ matrix.os }}
@@ -59,17 +59,20 @@ jobs:
       - name: Install required opam packages
         run: opam install -y ocamlfind zarith
 
-      - name: Prepare source directory
-        run: |
-          rm -rf z3.dev
-          git clone --depth 1 --branch ocaml-binding-more https://github.com/arbipher/z3.git z3.dev
-          curl -L https://raw.githubusercontent.com/ocaml/opam-source-archives/main/patches/z3/gccstd-2a.patch -o z3.dev/gccstd-2a.patch
+      # - name: Prepare source directory
+      #   run: |
+      #     rm -rf z3.dev
+      #     git clone --depth 1 --branch ocaml-binding-more https://github.com/arbipher/z3.git z3.dev
+      #     curl -L https://raw.githubusercontent.com/ocaml/opam-source-archives/main/patches/z3/gccstd-2a.patch -o z3.dev/gccstd-2a.patch
 
       # Install the package from the local source directory
       - name: Install package
         run: |
           eval $(opam env)
-          OPAMKEEPBUILDDIR=true opam install --reuse-build-dir ./packages/z3/z3.dev
+          opam remote add local-repo file://. --rank=1
+          opam install z3.dev
+          # # OPAMKEEPBUILDDIR=true opam install --reuse-build-dir ./packages/z3/z3.dev
+          # OPAMKEEPBUILDDIR=true opam install ./packages/z3/z3.dev
 
       # Test the installed package
       - name: Test installed package
