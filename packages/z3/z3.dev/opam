@@ -34,8 +34,8 @@ install: [
   ["install_name_tool" "-id" "%{lib}%/stublibs/libz3.dylib" "%{lib}%/stublibs/libz3.dylib"] {os = "macos"}
   [ "sh" "-c"
     "
-    LIBZ3_KEY=$(otool -L '%{lib}%/stublibs/dllz3ml.so' | awk '/libz3.*dylib/ { print \\$1 }')
-    install_name_tool -change \"$LIBZ3_KEY\" \"%{lib}%/stublibs/libz3.dylib\" \"%{lib}%/stublibs/dllz3ml.so\"
+    LIBZ3_KEY=$(otool -L '%{lib}%/stublibs/dllz3ml.so' | awk '/libz3.*dylib/ { print $1 }')
+    install_name_tool -change $LIBZ3_KEY '%{lib}%/stublibs/libz3.dylib' '%{lib}%/stublibs/dllz3ml.so'
     "
   ] {os = "macos"}
 ]
