@@ -73,13 +73,14 @@ jobs:
           opam repository remove local-repo --yes --all || true
           opam repository add local-repo "file://$PWD" --rank=1
           # opam install z3.dev
-          opam reinstall z3.dev
+          opam reinstall z3.dev --verbose
 
       # Test the installed package
       - name: Test installed package
         run: |
           eval $(opam env)
           ocamlfind query z3
+          export DYLD_LIBRARY_PATH=$(pwd)/build
           SRC_DIR="$OPAM_SWITCH_PREFIX/.opam-switch/sources/z3.dev"
           ocamlfind ocamlc -package z3 -linkpkg -o test_z3 "$SRC_DIR/examples/ml/ml_example.ml"
           ./test_z3
