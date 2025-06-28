@@ -36,11 +36,15 @@ install: [
   ["install_name_tool" "-id" "%{lib}%/stublibs/libz3.dylib" "%{lib}%/stublibs/libz3.dylib"] {os = "macos"}
   [ "sh" "-c"
     "
+    echo '-- listing'
     ls %{lib}%/z3 | grep z3
     ls %{lib}%/stublibs | grep z3
+
+    echo '-- otool info'
     otool -L '%{lib}%/stublibs/libz3.dylib'
     otool -L '%{lib}%/stublibs/dllz3ml.so'
-    LIBZ3_KEY=$(otool -L '%{lib}%/stublibs/dllz3ml.so' | awk '/libz3.*dylib/ { print \\$1 }')
+    
+    LIBZ3_KEY=$(otool -L '%{lib}%/stublibs/dllz3ml.so' | awk '/libz3.*dylib/ { print $1 }')
     echo \"$LIBZ3_KEY\"
     install_name_tool -change \"$LIBZ3_KEY\" \"%{lib}%/stublibs/libz3.dylib\" \"%{lib}%/stublibs/dllz3ml.so\"
     "
