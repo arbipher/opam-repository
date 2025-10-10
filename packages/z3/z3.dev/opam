@@ -23,22 +23,23 @@ build: [
 ]
 
 install: [
-  [ "sh" "-c" "ocamlfind install z3 \
-    build/src/api/ml/*.mli \
-    build/src/api/ml/*.cm* \
-    build/src/api/ml/*.so \
-    build/src/api/ml/*.dylib \
-    build/src/api/ml/*.dll \
-    build/src/api/ml/*.o \
-    build/src/api/ml/*.a \
-    build/src/api/ml/META \
-    -dll build/libz3.*" ]
+  # [ "sh" "-c" "ocamlfind install z3 \
+  #   build/src/api/ml/*.mli \
+  #   build/src/api/ml/*.cm* \
+  #   build/src/api/ml/*.so \
+  #   build/src/api/ml/*.dylib \
+  #   build/src/api/ml/*.dll \
+  #   build/src/api/ml/*.o \
+  #   build/src/api/ml/*.a \
+  #   build/src/api/ml/META \
+  #   -dll build/libz3.*" ]
+  [ "sh" "-c" "ocamlfind install z3 build/src/api/ml/* -dll build/libz3.*" ]
   ["install_name_tool" "-id" "%{lib}%/stublibs/libz3.dylib" "%{lib}%/stublibs/libz3.dylib"] {os = "macos"}
   [ "sh" "-c"
     "
     ls %{lib}%/z3 | grep z3
     ls %{lib}%/stublibs | grep z3
-    otool -L '%{lib}%/libz3.dylib'
+    otool -L '%{lib}%/stublibs/libz3.dylib'
     otool -L '%{lib}%/stublibs/dllz3ml.so'
     LIBZ3_KEY=$(otool -L '%{lib}%/stublibs/dllz3ml.so' | awk '/libz3.*dylib/ { print \\$1 }')
     echo \"$LIBZ3_KEY\"
