@@ -11,7 +11,7 @@ build: [
 ]
 depends: [
   "ocaml"  {>= "5.1.0"}
-  "base"   {>= "v0.17" & < "v0.18"}
+  "base"   {>= "v0.17" & < "v0.18~"}
   "dune"   {>= "3.11.0"}
   "ppxlib" {>= "0.28.0"}
 ]
@@ -24,3 +24,5 @@ url {
 src: "https://github.com/janestreet/ppx_stable_witness/archive/refs/tags/v0.17.0.tar.gz"
 checksum: "sha256=052db5d52ccacaab30ead1a4192ad021ee00c235a73c09b7918acabcee4a0cda"
 }
+x-maintenance-intent: ["(latest)"]
+

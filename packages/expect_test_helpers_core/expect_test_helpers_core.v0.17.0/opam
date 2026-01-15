@@ -11,12 +11,12 @@ build: [
 ]
 depends: [
   "ocaml"           {>= "5.1.0"}
-  "base"            {>= "v0.17" & < "v0.18"}
-  "base_quickcheck" {>= "v0.17" & < "v0.18"}
-  "core"            {>= "v0.17" & < "v0.18"}
-  "ppx_jane"        {>= "v0.17" & < "v0.18"}
-  "sexp_pretty"     {>= "v0.17" & < "v0.18"}
-  "stdio"           {>= "v0.17" & < "v0.18"}
+  "base"            {>= "v0.17" & < "v0.18~"}
+  "base_quickcheck" {>= "v0.17" & < "v0.18~"}
+  "core"            {>= "v0.17" & < "v0.18~"}
+  "ppx_jane"        {>= "v0.17" & < "v0.18~"}
+  "sexp_pretty"     {>= "v0.17" & < "v0.18~"}
+  "stdio"           {>= "v0.17" & < "v0.18~"}
   "dune"            {>= "3.11.0"}
   "re"              {>= "1.8.0"}
 ]
@@ -32,3 +32,5 @@ url {
 src: "https://github.com/janestreet/expect_test_helpers_core/archive/refs/tags/v0.17.0.tar.gz"
 checksum: "sha256=c8380970589385b459413824ea3b2c959ed0a6600fe088f56eda0e16070880bf"
 }
+x-maintenance-intent: ["(latest)"]
+

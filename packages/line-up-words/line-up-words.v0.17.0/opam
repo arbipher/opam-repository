@@ -11,11 +11,11 @@ build: [
 ]
 depends: [
   "ocaml"         {>= "5.1.0"}
-  "core"          {>= "v0.17" & < "v0.18"}
-  "core_unix"     {>= "v0.17" & < "v0.18"}
-  "patience_diff" {>= "v0.17" & < "v0.18"}
-  "ppx_jane"      {>= "v0.17" & < "v0.18"}
-  "re2"           {>= "v0.17" & < "v0.18"}
+  "core"          {>= "v0.17" & < "v0.18~"}
+  "core_unix"     {>= "v0.17" & < "v0.18~"}
+  "patience_diff" {>= "v0.17" & < "v0.18~"}
+  "ppx_jane"      {>= "v0.17" & < "v0.18~"}
+  "re2"           {>= "v0.17" & < "v0.18~"}
   "dune"          {>= "3.11.0"}
   "pcre"
 ]
@@ -31,3 +31,5 @@ url {
 src: "https://github.com/janestreet/line-up-words/archive/refs/tags/v0.17.0.tar.gz"
 checksum: "sha256=a776b0dded28c93b052615cb3904ce318b25e93c361c7085fa7aff5c4f38a0d3"
 }
+x-maintenance-intent: ["(latest)"]
+

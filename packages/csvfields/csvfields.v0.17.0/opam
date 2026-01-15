@@ -11,9 +11,9 @@ build: [
 ]
 depends: [
   "ocaml"    {>= "5.1.0"}
-  "core"     {>= "v0.17" & < "v0.18"}
-  "ppx_jane" {>= "v0.17" & < "v0.18"}
-  "sexplib"  {>= "v0.17" & < "v0.18"}
+  "core"     {>= "v0.17" & < "v0.18~"}
+  "ppx_jane" {>= "v0.17" & < "v0.18~"}
+  "sexplib"  {>= "v0.17" & < "v0.18~"}
   "dune"     {>= "3.11.0"}
   "num"
 ]
@@ -25,3 +25,5 @@ url {
 src: "https://github.com/janestreet/csvfields/archive/refs/tags/v0.17.0.tar.gz"
 checksum: "sha256=c4ab42985bea21fb5880ebc0ef142bf4050a47bd199e0f2bc95ea7f830e9a2cf"
 }
+x-maintenance-intent: ["(latest)"]
+

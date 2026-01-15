@@ -11,9 +11,9 @@ build: [
 ]
 depends: [
   "ocaml"         {>= "5.1.0"}
-  "base"          {>= "v0.17" & < "v0.18"}
-  "higher_kinded" {>= "v0.17" & < "v0.18"}
-  "ppx_jane"      {>= "v0.17" & < "v0.18"}
+  "base"          {>= "v0.17" & < "v0.18~"}
+  "higher_kinded" {>= "v0.17" & < "v0.18~"}
+  "ppx_jane"      {>= "v0.17" & < "v0.18~"}
   "dune"          {>= "3.11.0"}
 ]
 available: arch != "arm32" & arch != "x86_32"
@@ -30,3 +30,5 @@ url {
 src: "https://github.com/janestreet/accessor/archive/refs/tags/v0.17.0.tar.gz"
 checksum: "sha256=7875cdec612852f274aeeb23222309634cf5e605c81465ac4a85f164452e8020"
 }
+x-maintenance-intent: ["(latest)"]
+

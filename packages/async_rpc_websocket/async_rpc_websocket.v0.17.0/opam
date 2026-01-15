@@ -11,9 +11,9 @@ build: [
 ]
 depends: [
   "ocaml"                  {>= "5.1.0"}
-  "async_rpc_kernel"       {>= "v0.17" & < "v0.18"}
-  "cohttp_async_websocket" {>= "v0.17" & < "v0.18"}
-  "ppx_jane"               {>= "v0.17" & < "v0.18"}
+  "async_rpc_kernel"       {>= "v0.17" & < "v0.18~"}
+  "cohttp_async_websocket" {>= "v0.17" & < "v0.18~"}
+  "ppx_jane"               {>= "v0.17" & < "v0.18~"}
   "cohttp-async"           {>= "2.5.7" & < "3.0.0" | >= "5.1.1" & < "6.0.0"}
   "dune"                   {>= "3.11.0"}
 ]
@@ -34,3 +34,5 @@ url {
 src: "https://github.com/janestreet/async_rpc_websocket/archive/refs/tags/v0.17.0.tar.gz"
 checksum: "sha256=c0303047764087e6ee5b4913c9c1d432c7f8e97bb8d9bb9ef45abd94997b179b"
 }
+x-maintenance-intent: ["(latest)"]
+

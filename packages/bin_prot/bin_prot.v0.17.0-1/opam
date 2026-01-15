@@ -12,14 +12,14 @@ build: [
 ]
 depends: [
   "ocaml"              {>= "5.1.0"}
-  "base"               {>= "v0.17" & < "v0.18"}
-  "ppx_compare"        {>= "v0.17" & < "v0.18"}
-  "ppx_custom_printf"  {>= "v0.17" & < "v0.18"}
-  "ppx_fields_conv"    {>= "v0.17" & < "v0.18"}
-  "ppx_optcomp"        {>= "v0.17" & < "v0.18"}
-  "ppx_sexp_conv"      {>= "v0.17" & < "v0.18"}
-  "ppx_stable_witness" {>= "v0.17" & < "v0.18"}
-  "ppx_variants_conv"  {>= "v0.17" & < "v0.18"}
+  "base"               {>= "v0.17" & < "v0.18~"}
+  "ppx_compare"        {>= "v0.17" & < "v0.18~"}
+  "ppx_custom_printf"  {>= "v0.17" & < "v0.18~"}
+  "ppx_fields_conv"    {>= "v0.17" & < "v0.18~"}
+  "ppx_optcomp"        {>= "v0.17" & < "v0.18~"}
+  "ppx_sexp_conv"      {>= "v0.17" & < "v0.18~"}
+  "ppx_stable_witness" {>= "v0.17" & < "v0.18~"}
+  "ppx_variants_conv"  {>= "v0.17" & < "v0.18~"}
   "dune"               {>= "3.11.0"}
 ]
 available: arch != "x86_32" & os != "freebsd"
@@ -42,3 +42,5 @@ extra-source "remove-outdated-mirage-xen-cross-compilation-rules.patch" {
     "md5=0b9ecf65c743f358ead5ad9f586cdee0"
   ]
 }
+x-maintenance-intent: ["(latest)"]
+

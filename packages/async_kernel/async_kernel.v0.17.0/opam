@@ -11,9 +11,9 @@ build: [
 ]
 depends: [
   "ocaml"       {>= "5.1.0"}
-  "core"        {>= "v0.17" & < "v0.18"}
-  "core_kernel" {>= "v0.17" & < "v0.18"}
-  "ppx_jane"    {>= "v0.17" & < "v0.18"}
+  "core"        {>= "v0.17" & < "v0.18~"}
+  "core_kernel" {>= "v0.17" & < "v0.18~"}
+  "ppx_jane"    {>= "v0.17" & < "v0.18~"}
   "dune"        {>= "3.11.0"}
 ]
 available: arch != "arm32" & arch != "x86_32"
@@ -28,3 +28,5 @@ url {
 src: "https://github.com/janestreet/async_kernel/archive/refs/tags/v0.17.0.tar.gz"
 checksum: "sha256=01ced973dbc70535f692f38bed524ae82dba17e26e58791b2fbf0d647b160d2e"
 }
+x-maintenance-intent: ["(latest)"]
+

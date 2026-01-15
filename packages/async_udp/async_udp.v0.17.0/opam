@@ -11,9 +11,9 @@ build: [
 ]
 depends: [
   "ocaml"     {>= "5.1.0"}
-  "async"     {>= "v0.17" & < "v0.18"}
-  "core_unix" {>= "v0.17" & < "v0.18"}
-  "ppx_jane"  {>= "v0.17" & < "v0.18"}
+  "async"     {>= "v0.17" & < "v0.18~"}
+  "core_unix" {>= "v0.17" & < "v0.18~"}
+  "ppx_jane"  {>= "v0.17" & < "v0.18~"}
   "dune"      {>= "3.11.0"}
 ]
 available: arch != "arm32" & arch != "x86_32"
@@ -28,3 +28,5 @@ url {
 src: "https://github.com/janestreet/async_udp/archive/refs/tags/v0.17.0.tar.gz"
 checksum: "sha256=018a4556494ae313ec796b816b2c8463ec4faed88520820f466bf42d849dda80"
 }
+x-maintenance-intent: ["(latest)"]
+

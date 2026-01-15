@@ -11,8 +11,8 @@ build: [
 ]
 depends: [
   "ocaml"    {>= "5.1.0"}
-  "base"     {>= "v0.17" & < "v0.18"}
-  "ppx_base" {>= "v0.17" & < "v0.18"}
+  "base"     {>= "v0.17" & < "v0.18~"}
+  "ppx_base" {>= "v0.17" & < "v0.18~"}
   "dune"     {>= "3.11.0"}
 ]
 available: arch != "x86_32"
@@ -23,3 +23,5 @@ url {
 src: "https://github.com/janestreet/capitalization/archive/refs/tags/v0.17.0.tar.gz"
 checksum: "sha256=f71d45ec929c9fc9b08e07723c15b6663b0143c4465b5d93038f653258cd5c6f"
 }
+x-maintenance-intent: ["(latest)"]
+

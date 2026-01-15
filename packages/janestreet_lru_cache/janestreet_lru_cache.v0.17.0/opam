@@ -11,8 +11,8 @@ build: [
 ]
 depends: [
   "ocaml"    {>= "5.1.0"}
-  "core"     {>= "v0.17" & < "v0.18"}
-  "ppx_jane" {>= "v0.17" & < "v0.18"}
+  "core"     {>= "v0.17" & < "v0.18~"}
+  "ppx_jane" {>= "v0.17" & < "v0.18~"}
   "dune"     {>= "3.11.0"}
 ]
 available: arch != "arm32" & arch != "x86_32"
@@ -24,3 +24,5 @@ url {
 src: "https://github.com/janestreet/janestreet_lru_cache/archive/refs/tags/v0.17.0.tar.gz"
 checksum: "sha256=947e47ee2eb15d5329a49d65f296b47fa74cbe4b5ed799f8b62bb274820d269c"
 }
+x-maintenance-intent: ["(latest)"]
+

@@ -11,8 +11,8 @@ build: [
 ]
 depends: [
   "ocaml"    {>= "5.1.0"}
-  "base"     {>= "v0.17" & < "v0.18"}
-  "ppx_base" {>= "v0.17" & < "v0.18"}
+  "base"     {>= "v0.17" & < "v0.18~"}
+  "ppx_base" {>= "v0.17" & < "v0.18~"}
   "dune"     {>= "3.11.0"}
   "ppxlib"   {>= "0.28.0"}
   "pyml"     {>= "20211015"}
@@ -26,3 +26,5 @@ url {
 src: "https://github.com/janestreet/ppx_python/archive/refs/tags/v0.17.0.tar.gz"
 checksum: "sha256=8b73e8dbd8d094ab297bfc38f7c6b139e652106e31fa611060f0f858613c467b"
 }
+x-maintenance-intent: ["(latest)"]
+

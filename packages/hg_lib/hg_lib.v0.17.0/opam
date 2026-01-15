@@ -11,11 +11,11 @@ build: [
 ]
 depends: [
   "ocaml"                    {>= "5.1.0"}
-  "async"                    {>= "v0.17" & < "v0.18"}
-  "core"                     {>= "v0.17" & < "v0.18"}
-  "core_kernel"              {>= "v0.17" & < "v0.18"}
-  "expect_test_helpers_core" {>= "v0.17" & < "v0.18"}
-  "ppx_jane"                 {>= "v0.17" & < "v0.18"}
+  "async"                    {>= "v0.17" & < "v0.18~"}
+  "core"                     {>= "v0.17" & < "v0.18~"}
+  "core_kernel"              {>= "v0.17" & < "v0.18~"}
+  "expect_test_helpers_core" {>= "v0.17" & < "v0.18~"}
+  "ppx_jane"                 {>= "v0.17" & < "v0.18~"}
   "dune"                     {>= "3.11.0"}
 ]
 available: arch != "arm32" & arch != "x86_32"
@@ -27,3 +27,5 @@ url {
 src: "https://github.com/janestreet/hg_lib/archive/refs/tags/v0.17.0.tar.gz"
 checksum: "sha256=2b7ec89fea70243afe99e6756268c59a76a600ab8db573c64efbe305485acf94"
 }
+x-maintenance-intent: ["(latest)"]
+

@@ -11,11 +11,11 @@ build: [
 ]
 depends: [
   "ocaml"                     {>= "5.1.0"}
-  "base"                      {>= "v0.17" & < "v0.18"}
-  "hardcaml"                  {>= "v0.17" & < "v0.18"}
-  "hardcaml_event_driven_sim" {>= "v0.17" & < "v0.18"}
-  "ppx_jane"                  {>= "v0.17" & < "v0.18"}
-  "stdio"                     {>= "v0.17" & < "v0.18"}
+  "base"                      {>= "v0.17" & < "v0.18~"}
+  "hardcaml"                  {>= "v0.17" & < "v0.18~"}
+  "hardcaml_event_driven_sim" {>= "v0.17" & < "v0.18~"}
+  "ppx_jane"                  {>= "v0.17" & < "v0.18~"}
+  "stdio"                     {>= "v0.17" & < "v0.18~"}
   "dune"                      {>= "3.11.0"}
 ]
 available: arch != "arm32" & arch != "x86_32"
@@ -30,3 +30,5 @@ url {
 src: "https://github.com/janestreet/hardcaml_step_testbench/archive/refs/tags/v0.17.0.tar.gz"
 checksum: "sha256=a21b13cf03b84f06471e7c31ecbac8df1b08f8ac1156d0f3a41d2250ea293b2f"
 }
+x-maintenance-intent: ["(latest)"]
+

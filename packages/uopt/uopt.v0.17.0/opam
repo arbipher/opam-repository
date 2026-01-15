@@ -11,8 +11,8 @@ build: [
 ]
 depends: [
   "ocaml"    {>= "5.1.0"}
-  "base"     {>= "v0.17" & < "v0.18"}
-  "ppx_jane" {>= "v0.17" & < "v0.18"}
+  "base"     {>= "v0.17" & < "v0.18~"}
+  "ppx_jane" {>= "v0.17" & < "v0.18~"}
   "dune"     {>= "3.11.0"}
 ]
 available: arch != "arm32" & arch != "x86_32"
@@ -24,3 +24,5 @@ url {
 src: "https://github.com/janestreet/uopt/archive/refs/tags/v0.17.0.tar.gz"
 checksum: "sha256=a6534df59d54cfa50ac22c4406d425b098e94b198cee48c3d82e15a348577cc6"
 }
+x-maintenance-intent: ["(latest)"]
+

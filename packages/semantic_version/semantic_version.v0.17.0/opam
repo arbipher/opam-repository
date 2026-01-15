@@ -11,8 +11,8 @@ build: [
 ]
 depends: [
   "ocaml"    {>= "5.1.0"}
-  "core"     {>= "v0.17" & < "v0.18"}
-  "ppx_jane" {>= "v0.17" & < "v0.18"}
+  "core"     {>= "v0.17" & < "v0.18~"}
+  "ppx_jane" {>= "v0.17" & < "v0.18~"}
   "dune"     {>= "3.11.0"}
   "re"       {>= "1.8.0"}
 ]
@@ -25,3 +25,5 @@ url {
 src: "https://github.com/janestreet/semantic_version/archive/refs/tags/v0.17.0.tar.gz"
 checksum: "sha256=12fbf7467dc90928451639b20069a5a8dc3f2ac080b00912f8129c2117e262aa"
 }
+x-maintenance-intent: ["(latest)"]
+

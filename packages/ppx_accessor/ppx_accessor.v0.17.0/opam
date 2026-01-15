@@ -11,8 +11,8 @@ build: [
 ]
 depends: [
   "ocaml"    {>= "5.1.0"}
-  "accessor" {>= "v0.17" & < "v0.18"}
-  "base"     {>= "v0.17" & < "v0.18"}
+  "accessor" {>= "v0.17" & < "v0.18~"}
+  "base"     {>= "v0.17" & < "v0.18~"}
   "dune"     {>= "3.11.0"}
   "ppxlib"   {>= "0.28.0"}
 ]
@@ -25,3 +25,5 @@ url {
 src: "https://github.com/janestreet/ppx_accessor/archive/refs/tags/v0.17.0.tar.gz"
 checksum: "sha256=a4ecd534d06b4de53ef877abbd6df18f0f08b3042e285f2d3a3e1f2a055fe20b"
 }
+x-maintenance-intent: ["(latest)"]
+

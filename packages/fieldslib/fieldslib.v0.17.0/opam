@@ -11,7 +11,7 @@ build: [
 ]
 depends: [
   "ocaml" {>= "5.1.0"}
-  "base"  {>= "v0.17" & < "v0.18"}
+  "base"  {>= "v0.17" & < "v0.18~"}
   "dune"  {>= "3.11.0"}
 ]
 available: arch != "x86_32"
@@ -26,3 +26,5 @@ url {
 src: "https://github.com/janestreet/fieldslib/archive/refs/tags/v0.17.0.tar.gz"
 checksum: "sha256=3d6001f7355d2dfb0f33fb7e64f39e34bda0917277609f5ec9a0703aa17b7dfa"
 }
+x-maintenance-intent: ["(latest)"]
+

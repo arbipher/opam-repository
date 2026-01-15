@@ -1,27 +1,54 @@
 name: Windows CI
 on:
-  push:
-    branches:
-      - master
   pull_request:
 env:
   OPAMROOT: D:\opamroot
   OPAMSOLVERTIMEOUT: 120
   MSYS: winsymlinks:native
 jobs:
-  build:
-    strategy:
-      fail-fast: false
-      matrix:
-        os:
-          - windows-latest
-        windows_env:
-          - cygwin
-          - msys2
-    runs-on: ${{ matrix.os }}
+  analyse:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.matrix.outputs.result }}
     steps:
       - name: Checkout tree
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 2
+
+      - name: Get changed files
+        id: changed-files
+        uses: tj-actions/changed-files@v47
+
+      - name: Compute build matrix
+        id: matrix
+        uses: actions/github-script@v8
+        with:
+          script: |
+            let changed_files = '${{ steps.changed-files.outputs.all_changed_files }}';
+            let packages = [];
+            for (file of changed_files.split(' ')) {
+              console.log("Changed: " + file);
+              const package = file.match(/^packages\/[^/]+\/([^/]+)/);
+              if (package)
+                packages.push(package[1]);
+            }
+            const splits =
+              Array.from({ length: Math.ceil(packages.length / 75) },
+                         (_, i) => packages.slice(i * 75, i * 75 + 75).join(' '));
+            return {build_env: ['cygwin', 'msys2'], packages: splits};
+
+  build:
+    name: "target/host: x86_64-w64-mingw32, build: ${{ matrix.build_env }}"
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJSON(needs.analyse.outputs.matrix) }}
+    if: ${{ join(fromJSON(needs.analyse.outputs.matrix).packages) != '' }}
+    runs-on: windows-latest
+    needs: analyse
+    steps:
+      - name: Checkout tree
+        uses: actions/checkout@v6
         with:
           fetch-depth: 2
 
@@ -32,15 +59,15 @@ jobs:
 
       - name: Restore opam cache
         id: cache-opam
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v5
         with:
           path: |
             D:\opam\bin
             D:\opamroot
-          key: ${{ runner.os }}-${{ matrix.windows_env }}-opam-${{ hashFiles('install.ps1') }}
+          key: ${{ runner.os }}-${{ matrix.build_env }}-opam-${{ hashFiles('install.ps1') }}
 
-      - name: Add MSys2 to PATH and install prerequisites
-        if: matrix.windows_env == 'msys2'
+      - name: Add MSYS2 to PATH and install prerequisites
+        if: matrix.build_env == 'msys2'
         run: |
           "C:\msys64" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
           C:\msys64\usr\bin\pacman.exe --noconfirm -Syuu  # Core update (in case any core packages are outdated)
@@ -58,7 +85,7 @@ jobs:
 
       - name: Init opam
         if: steps.cache-opam.outputs.cache-hit != 'true'
-        run: opam init --yes --no-setup ${{ matrix.windows_env == 'msys2' && '--cygwin-local-install' || '' }} .
+        run: opam init --yes --no-setup ${{ matrix.build_env == 'msys2' && '--cygwin-local-install' || '' }} .
 
       - name: Restrict testing to available compilers
         if: steps.cache-opam.outputs.cache-hit != 'true'
@@ -67,50 +94,25 @@ jobs:
 
       - name: Save opam cache
         if: steps.cache-opam.outputs.cache-hit != 'true'
-        uses: actions/cache/save@v4
+        uses: actions/cache/save@v5
         with:
           path: |
             D:\opam\bin
             D:\opamroot
           key: ${{ steps.cache-opam.outputs.cache-primary-key }}
 
-      - name: Print version information
+      - name: Print version and configuration information
         run: |
           opam --version
           opam exec -- ocaml -version
-
-      - name: Get changed files
-        id: changed-files
-        if: github.event_name != 'push'
-        uses: tj-actions/changed-files@v47
-
-      - name: List all changed packages
-        id: changed-packages
-        if: github.event_name != 'push'
-        env:
-          ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
-        run: |
-          $output = @()
-          Foreach ($file in ($env:ALL_CHANGED_FILES).Split(" ")) {
-            switch -Regex ($file) {
-              '^packages\\[^\\]*\\([^\\]*)\\.*' { $output += "$($matches[1])"; Break }
-              default { Write-Host "$file skipped"; Break }
-            }
-          }
-          $outputJson = $output | ConvertTo-Json
-          "data<<@@@" | Out-File -FilePath $env:GITHUB_OUTPUT -Encoding utf8 -Append
-          $outputJson | Out-File -FilePath $env:GITHUB_OUTPUT -Encoding utf8 -Append
-          "@@@" | Out-File -FilePath $env:GITHUB_OUTPUT -Encoding utf8 -Append
+          opam exec -- ocamlopt -config
+          opam var
 
       - name: Install packages
-        env:
-          ALL_CHANGED_PACKAGES: ${{ steps.changed-packages.outputs.data }}
-        if: github.event_name != 'push'
         run: |
-          $pkgs = $env:ALL_CHANGED_PACKAGES | ConvertFrom-Json
           $failed = $false
           opam update
-          Foreach ($pkg in $pkgs) {
+          Foreach ($pkg in '${{ matrix.packages }}' -split ' ') {
             Write-Host "::group::Testing `e[1;34m$pkg`e[0m"
             opam install --color=always --confirm-level=unsafe-yes "$pkg"
             Write-Host "::endgroup::"

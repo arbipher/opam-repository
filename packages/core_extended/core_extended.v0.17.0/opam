@@ -11,11 +11,11 @@ build: [
 ]
 depends: [
   "ocaml"          {>= "5.1.0"}
-  "core"           {>= "v0.17" & < "v0.18"}
-  "core_kernel"    {>= "v0.17" & < "v0.18"}
-  "core_unix"      {>= "v0.17" & < "v0.18"}
-  "ppx_jane"       {>= "v0.17" & < "v0.18"}
-  "record_builder" {>= "v0.17" & < "v0.18"}
+  "core"           {>= "v0.17" & < "v0.18~"}
+  "core_kernel"    {>= "v0.17" & < "v0.18~"}
+  "core_unix"      {>= "v0.17" & < "v0.18~"}
+  "ppx_jane"       {>= "v0.17" & < "v0.18~"}
+  "record_builder" {>= "v0.17" & < "v0.18~"}
   "dune"           {>= "3.11.0"}
   "re"             {>= "1.8.0"}
 ]
@@ -30,3 +30,5 @@ url {
 src: "https://github.com/janestreet/core_extended/archive/refs/tags/v0.17.0.tar.gz"
 checksum: "sha256=17de5f7cf59818d757bb0625c55f0afc84509122645b7782fb522ac98c3be446"
 }
+x-maintenance-intent: ["(latest)"]
+

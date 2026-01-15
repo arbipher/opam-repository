@@ -11,11 +11,11 @@ build: [
 ]
 depends: [
   "ocaml"          {>= "5.1.0"}
-  "core"           {>= "v0.17" & < "v0.18"}
-  "core_unix"      {>= "v0.17" & < "v0.18"}
-  "hardcaml"       {>= "v0.17" & < "v0.18"}
-  "ppx_hardcaml"   {>= "v0.17" & < "v0.18"}
-  "ppx_jane"       {>= "v0.17" & < "v0.18"}
+  "core"           {>= "v0.17" & < "v0.18~"}
+  "core_unix"      {>= "v0.17" & < "v0.18~"}
+  "hardcaml"       {>= "v0.17" & < "v0.18~"}
+  "ppx_hardcaml"   {>= "v0.17" & < "v0.18~"}
+  "ppx_jane"       {>= "v0.17" & < "v0.18~"}
   "ctypes"         {>= "0.18.0"}
   "ctypes-foreign"
   "dune"           {>= "3.11.0"}
@@ -32,3 +32,5 @@ url {
 src: "https://github.com/janestreet/hardcaml_verilator/archive/refs/tags/v0.17.0.tar.gz"
 checksum: "sha256=76f944f35c445eeb3028ff9e73dcdf1778937078ad655c1e949278d23d888251"
 }
+x-maintenance-intent: ["(latest)"]
+

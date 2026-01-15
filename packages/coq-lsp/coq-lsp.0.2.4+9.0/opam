@@ -43,16 +43,17 @@ depends: [
   "ocamlfind" { >= "1.9.8" }
 
   # v9.0
-  "rocq-prover"         { >= "9.0" < "9.1" }
+  "rocq-core"    { >= "9.0" < "9.1" }
+  "rocq-stdlib"
 
   # serlib deps
   "ppx_deriving"        { >= "5.2"                 }
   "ppx_deriving_yojson" { >= "3.7.0"               }
   "ppx_import"          { >= "1.11.0"              }
-  "sexplib"             { >= "v0.15.0" & < "v0.18" }
-  "ppx_sexp_conv"       { >= "v0.15.0" & < "v0.18" }
-  "ppx_compare"         { >= "v0.15.0" & < "v0.18" }
-  "ppx_hash"            { >= "v0.15.0" & < "v0.18" }
+  "sexplib"             { >= "v0.15.0" & < "v0.18~" }
+  "ppx_sexp_conv"       { >= "v0.15.0" & < "v0.18~" }
+  "ppx_compare"         { >= "v0.15.0" & < "v0.18~" }
+  "ppx_hash"            { >= "v0.15.0" & < "v0.18~" }
 ]
 
 # older results get in mess with ppx_deriving, we cannot control how

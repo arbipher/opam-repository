@@ -11,12 +11,12 @@ build: [
 ]
 depends: [
   "ocaml"       {>= "5.1.0"}
-  "async"       {>= "v0.17" & < "v0.18"}
-  "core"        {>= "v0.17" & < "v0.18"}
-  "core_kernel" {>= "v0.17" & < "v0.18"}
-  "core_unix"   {>= "v0.17" & < "v0.18"}
-  "ppx_jane"    {>= "v0.17" & < "v0.18"}
-  "re2"         {>= "v0.17" & < "v0.18"}
+  "async"       {>= "v0.17" & < "v0.18~"}
+  "core"        {>= "v0.17" & < "v0.18~"}
+  "core_kernel" {>= "v0.17" & < "v0.18~"}
+  "core_unix"   {>= "v0.17" & < "v0.18~"}
+  "ppx_jane"    {>= "v0.17" & < "v0.18~"}
+  "re2"         {>= "v0.17" & < "v0.18~"}
   "angstrom"    {>= "0.15.0"}
   "base64"      {>= "3.4.0"}
   "cryptokit"   {>= "1.16" & < "1.17"}
@@ -31,3 +31,5 @@ url {
 src: "https://github.com/janestreet/email_message/archive/refs/tags/v0.17.0.tar.gz"
 checksum: "sha256=3aa5c85da8530c277cf9e72e18861b235b3b872f08c87f118c04478433320ebb"
 }
+x-maintenance-intent: ["(latest)"]
+

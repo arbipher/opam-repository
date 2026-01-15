@@ -11,7 +11,7 @@ build: [
 ]
 depends: [
   "ocaml"           {>= "5.1.0"}
-  "ppx_inline_test" {>= "v0.17" & < "v0.18"}
+  "ppx_inline_test" {>= "v0.17" & < "v0.18~"}
   "dune"            {>= "3.11.0"}
   "ppxlib"          {>= "0.36.0"}
 ]
@@ -28,3 +28,5 @@ url {
     "sha512=7492c19b408709368f5a1ed020bea2c439ff562f765cd706637dbfb7ecdfc33478f9dd814fcf195292bf634769ae95f8b89b5b33b714e0fd6248f0754e1d37a4"
   ]
 }
+x-maintenance-intent: ["(latest)"]
+

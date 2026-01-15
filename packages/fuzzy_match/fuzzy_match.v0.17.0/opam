@@ -11,8 +11,8 @@ build: [
 ]
 depends: [
   "ocaml"    {>= "5.1.0"}
-  "core"     {>= "v0.17" & < "v0.18"}
-  "ppx_jane" {>= "v0.17" & < "v0.18"}
+  "core"     {>= "v0.17" & < "v0.18~"}
+  "ppx_jane" {>= "v0.17" & < "v0.18~"}
   "dune"     {>= "3.11.0"}
 ]
 available: arch != "arm32" & arch != "x86_32"
@@ -24,3 +24,5 @@ url {
 src: "https://github.com/janestreet/fuzzy_match/archive/refs/tags/v0.17.0.tar.gz"
 checksum: "sha256=33c0511fd8feba43b7904c6a9a0b9ccae77f9ba79e58a8918ef9f8f4d6e2e887"
 }
+x-maintenance-intent: ["(latest)"]
+

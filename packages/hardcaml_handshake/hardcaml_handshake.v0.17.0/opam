@@ -11,10 +11,10 @@ build: [
 ]
 depends: [
   "ocaml"        {>= "5.1.0"}
-  "base"         {>= "v0.17" & < "v0.18"}
-  "hardcaml"     {>= "v0.17" & < "v0.18"}
-  "ppx_hardcaml" {>= "v0.17" & < "v0.18"}
-  "ppx_jane"     {>= "v0.17" & < "v0.18"}
+  "base"         {>= "v0.17" & < "v0.18~"}
+  "hardcaml"     {>= "v0.17" & < "v0.18~"}
+  "ppx_hardcaml" {>= "v0.17" & < "v0.18~"}
+  "ppx_jane"     {>= "v0.17" & < "v0.18~"}
   "dune"         {>= "3.11.0"}
 ]
 available: arch != "arm32" & arch != "x86_32"
@@ -26,3 +26,5 @@ url {
 src: "https://github.com/janestreet/hardcaml_handshake/archive/refs/tags/v0.17.0.tar.gz"
 checksum: "sha256=d85154a5739904e70659578e2a3877d4877a4099fecdb73e9b5e71fc0ebf5d4d"
 }
+x-maintenance-intent: ["(latest)"]
+

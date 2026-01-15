@@ -11,9 +11,9 @@ build: [
 ]
 depends: [
   "ocaml"    {>= "5.1.0"}
-  "bignum"   {>= "v0.17" & < "v0.18"}
-  "core"     {>= "v0.17" & < "v0.18"}
-  "ppx_jane" {>= "v0.17" & < "v0.18"}
+  "bignum"   {>= "v0.17" & < "v0.18~"}
+  "core"     {>= "v0.17" & < "v0.18~"}
+  "ppx_jane" {>= "v0.17" & < "v0.18~"}
   "dune"     {>= "3.11.0"}
   "zarith"   {>= "1.11"}
 ]
@@ -27,3 +27,5 @@ url {
 src: "https://github.com/janestreet/bigdecimal/archive/refs/tags/v0.17.0.tar.gz"
 checksum: "sha256=7a73ad6a6a742e874d888904d9e78b5174c2ee80d769684d36027df84cb6a8d7"
 }
+x-maintenance-intent: ["(latest)"]
+

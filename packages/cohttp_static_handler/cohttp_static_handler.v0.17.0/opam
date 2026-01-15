@@ -11,7 +11,7 @@ build: [
 ]
 depends: [
   "ocaml"        {>= "5.1.0"}
-  "ppx_jane"     {>= "v0.17" & < "v0.18"}
+  "ppx_jane"     {>= "v0.17" & < "v0.18~"}
   "cohttp-async" {>= "2.5.7" & < "3.0.0" | >= "5.1.1" & < "6.0.0"}
   "dune"         {>= "3.11.0"}
   "uri-sexp"     {>= "3.0.0"}
@@ -26,3 +26,5 @@ url {
 src: "https://github.com/janestreet/cohttp_static_handler/archive/refs/tags/v0.17.0.tar.gz"
 checksum: "sha256=be86c64e3a5c2c875aafdd27a7d1dd574784d964866c6084c10f931377c164ac"
 }
+x-maintenance-intent: ["(latest)"]
+

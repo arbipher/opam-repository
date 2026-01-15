@@ -11,11 +11,11 @@ build: [
 ]
 depends: [
   "ocaml"            {>= "5.1.0"}
-  "async_kernel"     {>= "v0.17" & < "v0.18"}
-  "async_rpc_kernel" {>= "v0.17" & < "v0.18"}
-  "core"             {>= "v0.17" & < "v0.18"}
-  "core_kernel"      {>= "v0.17" & < "v0.18"}
-  "ppx_jane"         {>= "v0.17" & < "v0.18"}
+  "async_kernel"     {>= "v0.17" & < "v0.18~"}
+  "async_rpc_kernel" {>= "v0.17" & < "v0.18~"}
+  "core"             {>= "v0.17" & < "v0.18~"}
+  "core_kernel"      {>= "v0.17" & < "v0.18~"}
+  "ppx_jane"         {>= "v0.17" & < "v0.18~"}
   "dune"             {>= "3.11.0"}
 ]
 available: arch != "arm32" & arch != "x86_32"
@@ -27,3 +27,5 @@ url {
 src: "https://github.com/janestreet/async_durable/archive/refs/tags/v0.17.0.tar.gz"
 checksum: "sha256=649fa946f3cb7a3df8e198129981e4d8a891c6d2e645a1e6d213a2cc2a358938"
 }
+x-maintenance-intent: ["(latest)"]
+

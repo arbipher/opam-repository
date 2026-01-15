@@ -11,8 +11,8 @@ build: [
 ]
 depends: [
   "ocaml"    {>= "5.1.0"}
-  "core"     {>= "v0.17" & < "v0.18"}
-  "ppx_jane" {>= "v0.17" & < "v0.18"}
+  "core"     {>= "v0.17" & < "v0.18~"}
+  "ppx_jane" {>= "v0.17" & < "v0.18~"}
   "dune"     {>= "3.11.0"}
 ]
 available: arch != "arm32" & arch != "x86_32"
@@ -24,3 +24,5 @@ url {
 src: "https://github.com/janestreet/indentation_buffer/archive/refs/tags/v0.17.0.tar.gz"
 checksum: "sha256=e6b90976da50d61a3845f46d08199cc0eaa7f0f1601d0692ee15310067872c4c"
 }
+x-maintenance-intent: ["(latest)"]
+

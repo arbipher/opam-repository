@@ -11,11 +11,11 @@ build: [
 ]
 depends: [
   "ocaml"       {>= "5.1.0"}
-  "async"       {>= "v0.17" & < "v0.18"}
-  "core"        {>= "v0.17" & < "v0.18"}
-  "core_kernel" {>= "v0.17" & < "v0.18"}
-  "core_unix"   {>= "v0.17" & < "v0.18"}
-  "ppx_jane"    {>= "v0.17" & < "v0.18"}
+  "async"       {>= "v0.17" & < "v0.18~"}
+  "core"        {>= "v0.17" & < "v0.18~"}
+  "core_kernel" {>= "v0.17" & < "v0.18~"}
+  "core_unix"   {>= "v0.17" & < "v0.18~"}
+  "ppx_jane"    {>= "v0.17" & < "v0.18~"}
   "dune"        {>= "3.11.0"}
 ]
 available: arch != "arm32" & arch != "x86_32"
@@ -27,3 +27,5 @@ url {
 src: "https://github.com/janestreet/tracing/archive/refs/tags/v0.17.0.tar.gz"
 checksum: "sha256=5621f8fd41d64521cc88295417e48174f525a7e6e4f8a72885ba89056d461a72"
 }
+x-maintenance-intent: ["(latest)"]
+
