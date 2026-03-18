@@ -93,6 +93,11 @@ jobs:
       - name: Run ml_example (native)
         run: ./ml_example
 
+      # - name: Prepare source directory
+      #   run: |
+      #     rm -rf z3.dev
+      #     git clone --depth 1 --branch ocaml-binding-more https://github.com/arbipher/z3.git z3.dev
+      #     curl -L https://raw.githubusercontent.com/ocaml/opam-source-archives/main/patches/z3/gccstd-2a.patch -o z3.dev/gccstd-2a.patch
 
       # # Configure
       # - name: Configure with CMake
@@ -129,3 +134,4 @@ jobs:
       #     ninja build_z3_ocaml_bindings
       #     ccache -s || true
       #     ocamlfind query z3
+      #     export DYLD_LIBRARY_PATH=$(pwd)/build
